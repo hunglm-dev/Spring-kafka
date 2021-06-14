@@ -1,0 +1,7 @@
+app:
+  provider:
+    client-id: person-provider
+    bootstrap-servers: localhost:9092
+    provider-topic: person
+    topic-partition: 4
+    topic-replica: 1
