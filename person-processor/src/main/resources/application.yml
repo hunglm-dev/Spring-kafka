@@ -1,0 +1,9 @@
+app:
+  consumer:
+    appId: person-processor
+    clientId: person-processor-client
+    bootstrapServers: localhost:9092
+    numStreamThread: 5
+    autoOfsetReset: earliest
+    provideTopic: person
+    destinationTopic: person-full

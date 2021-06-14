@@ -1,7 +1,7 @@
 package com.lmhung.kafka.task;
 
 import com.lmhung.kafka.configuration.KafkaConfig;
-import com.lmhung.kafka.model.Person;
+import com.lmhung.common.model.Person;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -32,9 +32,9 @@ public class ProviderTask {
 
     @PostConstruct
     public void initializeSchedule() {
-        var cron = new CronTrigger("*/5 * * * * *");
+        var cron = new CronTrigger("*/30 * * * * *");
         log.info("Initialize providerScheduler with cron {}", cron);
-        var batchSize = 100;
+        var batchSize = 10;
         this.scheduler.schedule(
                 () -> {
                     log.info("Send a punch of person...");

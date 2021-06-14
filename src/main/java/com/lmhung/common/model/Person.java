@@ -1,4 +1,4 @@
-package com.lmhung.kafka.model;
+package com.lmhung.common.model;
 
 import com.lmhung.common.MyUtils;
 import lombok.Data;

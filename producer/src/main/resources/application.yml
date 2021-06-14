@@ -5,3 +5,5 @@ app:
     provider-topic: person
     topic-partition: 4
     topic-replica: 1
+server:
+  port: 8081
