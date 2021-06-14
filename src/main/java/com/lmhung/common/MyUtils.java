@@ -1,9 +1,6 @@
 package com.lmhung.common;
 
-import com.github.javafaker.Color;
-import com.github.javafaker.Company;
-import com.github.javafaker.Faker;
-import com.github.javafaker.Name;
+import com.github.javafaker.*;
 import com.mifmif.common.regex.Generex;
 
 import java.util.Locale;
@@ -33,11 +30,12 @@ public class MyUtils {
     public static String fakeColor(){
         return faker.color().name();
     }
-
     public static Company fakeCompany(){
         return faker.company();
     }
-
+    public static Address fakeAdress(){
+        return faker.address();
+    }
     public static String random(String regex){
         return new Generex(regex).random();
     }

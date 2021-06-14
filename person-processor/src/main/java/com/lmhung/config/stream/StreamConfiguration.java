@@ -1,10 +1,12 @@
 package com.lmhung.config.stream;
 
+import com.lmhung.common.MyUtils;
+import com.lmhung.common.model.Address;
+import com.lmhung.common.model.FullAddressPerson;
 import com.lmhung.common.model.Person;
 import com.lmhung.common.model.serde.FullAddressPersonSerde;
 import com.lmhung.common.model.serde.PersonSerde;
 import com.lmhung.config.app.ApplicationConfig;
-import com.lmhung.common.model.FullAddressPerson;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.Serdes;
@@ -14,7 +16,6 @@ import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Produced;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -28,12 +29,12 @@ public class StreamConfiguration {
     ApplicationConfig config;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         this.startKafkaStreamsSynchronously(kafkaStreams());
     }
 
     private Properties streamConfigProperties() {
-        final Properties props = new Properties();
+        final var props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, config.getAppId());
         props.put(StreamsConfig.CLIENT_ID_CONFIG, config.getClientId());
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, config.getBootstrapServers());
@@ -64,13 +65,22 @@ public class StreamConfiguration {
             latch.await();
         } catch (final InterruptedException e) {
             Thread.currentThread().interrupt();
-            throw new RuntimeException(e);
         }
     }
 
-    private FullAddressPerson mapValue(Person person){
+    private FullAddressPerson mapValue(Person person) {
         var fullAddressPerson = new FullAddressPerson();
         fullAddressPerson.setPerson(person);
+        var address = MyUtils.fakeAdress();
+        var personAddress = new Address();
+        personAddress.setCountry(address.country());
+        personAddress.setId(person.getAddressId());
+        personAddress.setCity(address.city());
+        personAddress.setStreet(address.streetAddress());
+        personAddress.setStreetNumber(address.streetAddressNumber());
+        personAddress.setCountryCode(address.countryCode());
+        fullAddressPerson.setAddress(personAddress);
+        log.info("Map person with Address: {}", personAddress);
         return fullAddressPerson;
     }
 
