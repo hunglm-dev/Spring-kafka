@@ -1,7 +1,7 @@
 package com.lmhung.kafka.task;
 
 import com.lmhung.kafka.configuration.KafkaConfig;
-import com.lmhung.common.model.Person;
+import common.model.Person;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;

@@ -1,4 +1,4 @@
-package com.lmhung.common.model;
+package common.model;
 
 import lombok.Data;
 import lombok.ToString;

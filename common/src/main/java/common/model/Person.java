@@ -1,6 +1,6 @@
-package com.lmhung.common.model;
+package common.model;
 
-import com.lmhung.common.MyUtils;
+import common.MyUtils;
 import lombok.Data;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;

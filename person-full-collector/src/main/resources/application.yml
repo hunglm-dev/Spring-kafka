@@ -1,0 +1,10 @@
+app:
+  consumer:
+    app-id: person-collector
+    client-id: full-person-consumer
+    bootstrap-servers: localhost:9092
+    num-of-stream-thread: 5
+    auto-ofset: earliest
+    consum-topic: person-full
+server:
+  port: 8082

@@ -1,4 +1,4 @@
-package com.lmhung.common;
+package common;
 
 import com.github.javafaker.*;
 import com.mifmif.common.regex.Generex;

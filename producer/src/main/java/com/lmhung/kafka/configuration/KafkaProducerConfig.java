@@ -1,7 +1,7 @@
 package com.lmhung.kafka.configuration;
 
-import com.lmhung.common.model.Person;
-import com.lmhung.common.model.serde.PersonSerde;
+import common.model.Person;
+import common.model.serde.PersonSerde;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;

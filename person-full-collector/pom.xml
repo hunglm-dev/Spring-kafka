@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lmhung</groupId>
-    <artifactId>person-processor</artifactId>
+    <artifactId>person-full-collector</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>person-processor</name>
+    <name>person-full-collector</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
@@ -29,8 +29,8 @@
             <version>0.0.1</version>
             <scope>compile</scope>
         </dependency>
-
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
